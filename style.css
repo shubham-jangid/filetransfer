@@ -102,10 +102,10 @@ body.receive .if-receive {
   height: 70px;
   text-align: center;
   text-decoration: none !important;
-  color: #fff !important;
+  color: #fff !important; 
   text-transform: uppercase;
   font-weight: bold;
-  border-radius: 1px;
+  border-radius: 50px;
   display: block;
   line-height: 70px;
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.08);
@@ -171,7 +171,7 @@ body.receive #step2 {
   display: inline-block;
   outline: none;
   width: 426px;
-  border-radius: 2px;
+  border-radius: 50px;
   font-size: 36px;
   color: #555;
 }

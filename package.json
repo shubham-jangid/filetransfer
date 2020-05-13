@@ -12,15 +12,17 @@
   "browser": "browser.js",
   "scripts": {
     "test": "standard && tape test.js",
-    "start": " npm-run-all -p -r dev prod ",
+    "start": "[[ NODE_EVN = production ]] && npm run prod || npm run dev",
     "build": "set NODE_ENV=production; mkdir -p build && browserify browser.js -o build/bundle.js -t [envify purge] -t babelify --presets [es2015] && cp -r index.html style.css assets build/",
     "dev": "signalhub listen -p 7000 & budo --live --host localhost index.js:bundle.js -- -t envify",
-    "prod": "budo index.js:bundle.js"
+    "prod": "budo index.js:bundle.js",
+    "startlocal": " npm-run-all -p -r dev prod "
   },
   "dependencies": {
     "budo": "^11.6.1",
     "clipboard": "^1.7.1",
     "crypto-js": "^3.1.9-1",
+    "express": "^4.17.1",
     "feature": "^1.0.1",
     "jquery": "^3.2.1",
     "namedfilestream": "^1.1.0",
@@ -36,8 +38,6 @@
     "standard": "^10.0.3",
     "tape": "^4.8.0"
   },
-
   "author": "shubham jangid>",
   "license": "MIT"
-  
 }

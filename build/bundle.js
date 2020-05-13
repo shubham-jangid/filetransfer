@@ -46877,10 +46877,10 @@ function extend() {
 
 },{}],240:[function(require,module,exports){
 module.exports={
-  "name": "peertransfer",
+  "name": "filetransfer",
   "version": "2.1.1",
   "description": "In-browser P2P-filetransfer in three simple steps: 1) Drop files into your browser. 2) Open the generated link on the second PC. 3) Download the files over a direct and encrypted line.",
-  "homepage": "https://github.com/perguth/peertransfer",
+  "homepage": "",
   "keywords": [
     "WebRTC",
     "p2p",
@@ -46890,15 +46890,17 @@ module.exports={
   "browser": "browser.js",
   "scripts": {
     "test": "standard && tape test.js",
-    "start": " npm-run-all -p -r dev prod ",
+    "start": "[[ NODE_EVN = production ]] && npm run prod || npm run dev",
     "build": "set NODE_ENV=production; mkdir -p build && browserify browser.js -o build/bundle.js -t [envify purge] -t babelify --presets [es2015] && cp -r index.html style.css assets build/",
     "dev": "signalhub listen -p 7000 & budo --live --host localhost index.js:bundle.js -- -t envify",
-    "prod": "budo index.js:bundle.js"
+    "prod": "budo index.js:bundle.js",
+    "startlocal": " npm-run-all -p -r dev prod "
   },
   "dependencies": {
     "budo": "^11.6.1",
     "clipboard": "^1.7.1",
     "crypto-js": "^3.1.9-1",
+    "express": "^4.17.1",
     "feature": "^1.0.1",
     "jquery": "^3.2.1",
     "namedfilestream": "^1.1.0",
@@ -46914,15 +46916,8 @@ module.exports={
     "standard": "^10.0.3",
     "tape": "^4.8.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/perguth/peertransfer.git"
-  },
-  "author": "Per Guth <mail@perguth.de>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/perguth/peertransfer/issues"
-  }
+  "author": "shubham jangid>",
+  "license": "MIT"
 }
 
 },{}]},{},[1]);
